@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Work – Anti-xor CCTV & Website Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#0c4f30; --dark2:#0a4327; --btn:#0d5a35; --g600:#1b8a4b; --g500:#35b566;
+  --lime:#5fd18a; --g100:#e4f4ea; --g50:#f3faf5; --ink:#10201a; --muted:#5d6d64;
+  --line:#e3ece6; --white:#fff; --shadow:0 12px 30px rgba(12,79,48,.09);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#fff;color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--g500);outline-offset:3px;border-radius:8px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--btn);background:var(--btn);color:#fff;font:600 .95rem 'Plus Jakarta Sans',system-ui,sans-serif;padding:13px 28px;border-radius:999px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(12,79,48,.25)}
+.btn.outline{background:#fff;color:var(--btn)}
+.btn.lime{background:var(--lime);border-color:var(--lime);color:#06371f}
+.btn.sm{padding:10px 22px;font-size:.88rem}
+.btn svg{width:14px;height:14px}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid transparent}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.4rem;letter-spacing:-.02em}
+.logo-mark{width:34px;height:34px;color:var(--g600)}
+.nav-links{display:flex;gap:32px;font-size:.9rem;font-weight:500;color:#2a3a32}
+.nav-links a:hover{color:var(--g600)}
+.nav-links a.active{color:var(--g600);font-weight:700}
+.phone{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--g600);color:var(--btn);background:#fff;padding:9px 18px;border-radius:999px;font-weight:600;font-size:.88rem}
+.menu-btn{display:none;background:#fff;border:1.5px solid var(--line);border-radius:10px;width:42px;height:42px;color:var(--ink);cursor:pointer;place-items:center}
+
+/* page hero */
+.page-hero{position:relative;background:linear-gradient(180deg,#fff 0,#fff 55%,var(--g50) 100%);padding:48px 0 40px;overflow:hidden}
+.page-hero .blob{position:absolute;right:-140px;top:-80px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#dff2e5,#eef8f1 60%,transparent 72%);pointer-events:none}
+.page-hero .inner{position:relative;max-width:640px}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--g600);font-weight:700;font-size:.85rem}
+.kicker svg{width:18px;height:22px;color:var(--g500)}
+h1.title{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.1;font-weight:800;letter-spacing:-.03em;margin:14px 0 14px}
+h1.title em{font-style:normal;color:var(--g600)}
+p.sub{color:var(--muted);font-size:.96rem;max-width:520px}
+
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:1.6rem;font-weight:800;color:var(--btn);letter-spacing:-.02em;line-height:1.1}
+.stat span{font-size:.78rem;color:var(--muted);font-weight:600}
+
+/* filter bar */
+.filter-bar{position:sticky;top:74px;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 0}
+.filters{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1.5px solid var(--line);background:#fff;color:#2a3a32;font:600 .84rem 'Plus Jakarta Sans',system-ui,sans-serif;padding:9px 18px;border-radius:999px;cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--g600);color:var(--g600)}
+.chip.active{background:var(--btn);border-color:var(--btn);color:#fff}
+
+/* gallery grid */
+.gallery-section{background:#fff;padding:44px 0 70px}
+.grid-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g-item{position:relative;border-radius:18px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);background:#e4f4ea;aspect-ratio:4/3;transition:transform .2s,box-shadow .2s}
+.g-item:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(12,79,48,.16)}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.g-item:hover img{transform:scale(1.06)}
+.g-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,79,48,.88) 0%,rgba(12,79,48,.35) 42%,transparent 72%);opacity:0;transition:opacity .25s;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.g-item:hover .overlay{opacity:1}
+.g-item .cat{display:inline-block;background:var(--lime);color:#06371f;font-size:.68rem;font-weight:800;padding:4px 12px;border-radius:999px;align-self:flex-start;margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em}
+.g-item h3{color:#fff;font-size:1.02rem;font-weight:700;margin-bottom:4px}
+.g-item p{color:#cfe7d8;font-size:.8rem}
+.g-item .zoom{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--btn);display:grid;place-items:center;opacity:0;transform:scale(.8);transition:all .25s}
+.g-item:hover .zoom{opacity:1;transform:scale(1)}
+.g-item .zoom svg{width:18px;height:18px}
+
+/* empty state */
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty svg{width:56px;height:56px;color:#c8dcd1;margin-bottom:16px}
+
+/* before/after compare strip */
+.compare-section{background:var(--g50);padding:70px 0}
+.compare-head{text-align:center;margin-bottom:36px}
+.compare-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.compare-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.compare-card h3{font-size:.95rem;font-weight:700;padding:16px 20px 10px}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.ba-pair .half{position:relative;overflow:hidden;aspect-ratio:1/1;background:#e4f4ea}
+.ba-pair img{width:100%;height:100%;object-fit:cover;display:block}
+.ba-pair .half span{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(12,79,48,.85);color:#fff;font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:999px}
+
+/* CTA */
+.cta-shell{padding:70px 0;background:#fff}
+.cta{position:relative;border-radius:44px;background:var(--dark);color:#fff;overflow:hidden;padding:56px;text-align:center}
+.cta::before{content:"";position:absolute;left:-80px;bottom:-120px;width:400px;height:400px;border-radius:50%;background:rgba(53,181,102,.28)}
+.cta::after{content:"";position:absolute;right:-80px;top:-120px;width:360px;height:360px;border-radius:50%;background:rgba(53,181,102,.20)}
+.cta>*{position:relative;z-index:2}
+.cta .eyebrow{display:inline-flex;align-items:center;gap:8px;color:#9be3b7;font-weight:600;font-size:.85rem}
+.cta .eyebrow svg{width:18px;height:22px}
+.cta h2{font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;font-weight:800;letter-spacing:-.02em;margin:16px 0 12px}
+.cta p{color:#cfe7d8;font-size:.92rem;max-width:480px;margin:0 auto 26px}
+.cta .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* footer */
+.footer{background:var(--dark);color:#cfe7d8;padding:64px 0 0}
+.f-grid{display:grid;grid-template-columns:1.4fr .8fr 1fr 1.2fr;gap:36px}
+.footer .logo{color:#fff}
+.footer .logo-mark{color:var(--lime)}
+.footer p{font-size:.86rem;margin-top:14px;max-width:280px}
+.footer h4{color:#fff;font-size:.95rem;font-weight:700;margin-bottom:14px}
+.footer li{font-size:.86rem;padding:5px 0}
+.footer li a:hover{color:#fff}
+.f-contact li{display:flex;gap:10px;align-items:flex-start}
+.f-contact svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--lime)}
+.f-bottom{margin-top:44px;border-top:1px solid rgba(255,255,255,.14);padding:20px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem}
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.wa svg{width:28px;height:28px;color:#fff}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(6,28,17,.94);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .25s}
+.lightbox.open{display:flex;opacity:1}
+.lb-content{position:relative;max-width:1080px;width:100%;max-height:90vh;display:flex;flex-direction:column;align-items:center}
+.lb-content img{max-width:100%;max-height:76vh;object-fit:contain;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.5);background:#0c1f15}
+.lb-caption{color:#fff;text-align:center;margin-top:18px;max-width:640px}
+.lb-caption .cat{display:inline-block;background:var(--lime);color:#06371f;font-size:.66rem;font-weight:800;padding:3px 12px;border-radius:999px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.lb-caption h3{font-size:1.15rem;font-weight:700;margin-bottom:4px}
+.lb-caption p{color:#a9ccb8;font-size:.85rem}
+.lb-close{position:absolute;top:-52px;right:0;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.lb-close:hover{background:rgba(255,255,255,.25)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.lb-nav:hover{background:rgba(255,255,255,.28)}
+.lb-nav.prev{left:-64px}
+.lb-nav.next{right:-64px}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:980px){
+  body{font-size:15px}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:74px;background:#fff;flex-direction:column;gap:0;padding:8px 20px 16px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .menu-btn{display:grid}
+  .phone{display:none}
+  .logo{font-size:1.25rem}
+  .page-hero{padding:34px 0 30px}
+  h1.title{font-size:clamp(1.7rem,6vw,2.2rem)}
+  p.sub{font-size:.9rem}
+  .stats{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+  .stat{padding:14px 16px;border-radius:14px}
+  .stat b{font-size:1.3rem}
+  .stat span{font-size:.72rem}
+  .filter-bar{top:74px;padding:12px 0}
+  .chip{font-size:.78rem;padding:8px 14px}
+  .gallery-section{padding:32px 0 50px}
+  .grid-gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+  .g-item{border-radius:14px}
+  .g-item .overlay{padding:14px;opacity:1;background:linear-gradient(to top,rgba(12,79,48,.92) 0%,rgba(12,79,48,.35) 55%,transparent 100%)}
+  .g-item .cat{font-size:.6rem;padding:3px 9px;margin-bottom:6px}
+  .g-item h3{font-size:.84rem}
+  .g-item p{display:none}
+  .g-item .zoom{display:none}
+  .compare-section{padding:48px 0}
+  .compare-grid{grid-template-columns:1fr;gap:16px}
+  .compare-card h3{font-size:.88rem;padding:12px 16px 8px}
+  .cta-shell{padding:48px 0}
+  .cta{border-radius:32px;padding:36px 22px}
+  .cta h2{font-size:clamp(1.5rem,5vw,1.9rem)}
+  .cta p{font-size:.86rem}
+  .btn{padding:11px 22px;font-size:.88rem}
+  .btn.sm{padding:9px 18px;font-size:.82rem}
+  .footer{padding:44px 0 0}
+  .f-grid{grid-template-columns:1fr 1fr;gap:26px}
+  .footer p{font-size:.82rem;max-width:none}
+  .f-bottom{margin-top:28px;padding:16px 0;font-size:.76rem;flex-direction:column;gap:6px}
+  .wa{width:48px;height:48px;right:14px;bottom:14px}
+  .wa svg{width:24px;height:24px}
+  .lb-nav{width:40px;height:40px}
+  .lb-nav.prev{left:8px}
+  .lb-nav.next{right:8px}
+  .lb-close{top:auto;bottom:-56px;right:50%;transform:translateX(50%)}
+  .lb-content img{max-height:64vh}
+}
+@media (max-width:620px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid-gallery{grid-template-columns:repeat(2,1fr);gap:10px}
+  .g-item h3{font-size:.78rem}
+  .f-grid{grid-template-columns:1fr;gap:22px}
+  .cta .cta-row{flex-direction:column}
+  .cta .cta-row .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="leaf" viewBox="0 0 60 80"><path d="M30 2C58 22 62 58 30 78 -2 58 2 22 30 2Z" fill="currentColor"/><path d="M30 12V74" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo" aria-label="Anti-xor home">
+      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 34 8v11c0 9-6 15-14 18C12 34 6 28 6 19V8z" fill="currentColor"/><circle cx="20" cy="20" r="7" fill="#fff"/><circle cx="20" cy="20" r="3.4" fill="#0c4f30"/><path d="M28 6c6 0 9 4 9 9-5-1-8-4-9-9z" fill="#5fd18a"/></svg>
+      Anti-xor
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a class="phone" data-phone-link href="#">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span data-phone-text>+255 700 000 000</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="blob"></div>
+  <div class="wrap inner">
+    <span class="kicker"><svg viewBox="0 0 60 80"><use href="#leaf"/></svg>Our Portfolio</span>
+    <h1 class="title">Work That Speaks for <em>Itself</em></h1>
+    <p class="sub">Browse real CCTV installations, business security systems, and websites we've delivered for homes, shops, and offices across Tanzania.</p>
+    <div class="stats">
+      <div class="stat"><b>250+</b><span>Projects Completed</span></div>
+      <div class="stat"><b>180+</b><span>Happy Clients</span></div>
+      <div class="stat"><b>60+</b><span>Websites Built</span></div>
+      <div class="stat"><b>8+</b><span>Years Experience</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="wrap">
+    <div class="filters" id="filters" role="tablist" aria-label="Filter gallery by category"></div>
+  </div>
+</div>
+
+<!-- GALLERY GRID -->
+<section class="gallery-section">
+  <div class="wrap">
+    <div class="grid-gallery" id="galleryGrid" aria-live="polite"></div>
+    <div class="empty" id="emptyState" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg>
+      <p>No projects in this category yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER COMPARE -->
+<section class="compare-section">
+  <div class="wrap">
+    <div class="compare-head">
+      <span class="kicker"><svg viewBox="0 0 60 80"><use href="#leaf"/></svg>Before &amp; After</span>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.025em;margin:12px 0 10px">See the Transformation</h2>
+      <p class="sub" style="margin-inline:auto">From exposed wiring and weak coverage to clean, professional installations.</p>
+    </div>
+    <div class="compare-grid" id="compareGrid"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-shell">
+  <div class="wrap">
+    <div class="cta">
+      <span class="eyebrow"><svg viewBox="0 0 60 80"><use href="#leaf"/></svg>Start Your Project</span>
+      <h2>Want Your Space Featured Here?</h2>
+      <p>Let's build a safer home or a stronger online presence for your business. Book a free site visit today.</p>
+      <div class="cta-row">
+        <a class="btn lime" href="index.html#book">Book a Free Visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn outline" data-wa href="#" target="_blank" rel="noopener" style="background:transparent;border-color:rgba(255,255,255,.4);color:#fff">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 34 8v11c0 9-6 15-14 18C12 34 6 28 6 19V8z" fill="currentColor"/><circle cx="20" cy="20" r="7" fill="#0c4f30"/><circle cx="20" cy="20" r="3.4" fill="#5fd18a"/></svg>
+          Anti-xor
+        </a>
+        <p>Reliable CCTV camera installation and website development for homes, offices and businesses across Tanzania.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="index.html#services">CCTV Installation</a></li>
+          <li><a href="index.html#services">Business Security</a></li>
+          <li><a href="index.html#services">Remote Monitoring</a></li>
+          <li><a href="index.html#services">Website Development</a></li>
+          <li><a href="index.html#services">E-commerce Websites</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="f-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a data-phone-link data-phone-text href="#">+255 700 000 000</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a data-email href="#">hello@anti-xor.co.tz</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-address>Nyerere Road, Dar es Salaam, Tanzania</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-hours>Mon–Sat, 8 AM – 6 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Anti-xor. All rights reserved.</span>
+      <span>CCTV Camera Installation &amp; Website Development</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" data-wa href="#" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.200c0 1.300.9 2.500 1 2.700.1.200 1.800 2.800 4.400 3.900 1.600.7 2.300.7 3.100.6.500-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project image viewer">
+  <div class="lb-content">
+    <button class="lb-close" id="lbClose" aria-label="Close viewer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lb-nav prev" id="lbPrev" aria-label="Previous image">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg>
+    </button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-nav next" id="lbNext" aria-label="Next image">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+    </button>
+    <div class="lb-caption">
+      <span class="cat" id="lbCat"></span>
+      <h3 id="lbTitle"></h3>
+      <p id="lbDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================
+   CONFIG — edit your contact details and add your own photos
+   ===================================================== */
+var CONFIG = {
+  phone:    '+255 700 000 000',
+  whatsapp: '255700000000',
+  email:    'hello@anti-xor.co.tz',
+  address:  'Nyerere Road, Dar es Salaam, Tanzania',
+  hours:    'Mon–Sat, 8 AM – 6 PM'
+};
+
+/* =====================================================
+   GALLERY DATA — add / remove projects freely.
+   category must match one of: 'cctv', 'web', 'business', 'shop'
+   Replace the image URLs with your own photos anytime.
+   ===================================================== */
+var GALLERY = [
+  { id:1, title:'Home CCTV – Mbezi Beach', category:'cctv',
+    desc:'4 HD cameras with night vision, phone access, and clean hidden cabling.',
+    img:'https://images.unsplash.com/photo-1558002038-1055907df827?w=900&h=700&fit=crop&q=80' },
+
+  { id:2, title:'Office Security – Kariakoo', category:'business',
+    desc:'8 camera NVR system with motion alerts and 2 TB storage.',
+    img:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=700&fit=crop&q=80' },
+
+  { id:3, title:'Clinic Website – Upanga', category:'web',
+    desc:'5-page mobile-friendly site with online appointment booking.',
+    img:'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&h=700&fit=crop&q=80' },
+
+  { id:4, title:'Shop CCTV – Kariakoo Market', category:'shop',
+    desc:'6 cameras covering entrance, counter, and storage room.',
+    img:'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&h=700&fit=crop&q=80' },
+
+  { id:5, title:'E-commerce Store – Online Shop', category:'web',
+    desc:'Full online store with cart, checkout, and M-Pesa integration.',
+    img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=700&fit=crop&q=80' },
+
+  { id:6, title:'Warehouse Security – Mikocheni', category:'business',
+    desc:'12 camera 4K system with 30-day recording and remote monitoring.',
+    img:'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&h=700&fit=crop&q=80' },
+
+  { id:7, title:'Apartment CCTV – Masaki', category:'cctv',
+    desc:'Entrance, lift, and parking cameras with mobile app viewing.',
+    img:'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=900&h=700&fit=crop&q=80' },
+
+  { id:8, title:'Restaurant Website – City Centre', category:'web',
+    desc:'Menu showcase, table booking, and Google Maps integration.',
+    img:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&h=700&fit=crop&q=80' },
+
+  { id:9, title:'Boutique CCTV – Mlimani City', category:'shop',
+    desc:'Discreet dome cameras with 4K clarity and cloud backup.',
+    img:'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&h=700&fit=crop&q=80' },
+
+  { id:10, title:'Corporate Website – HQ', category:'web',
+    desc:'Multi-section corporate site with team pages and contact forms.',
+    img:'https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&h=700&fit=crop&q=80' },
+
+  { id:11, title:'School Security – Kinondoni', category:'business',
+    desc:'Perimeter cameras with gate monitoring and staff room feeds.',
+    img:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&h=700&fit=crop&q=80' },
+
+  { id:12, title:'Salon CCTV – Sinza', category:'shop',
+    desc:'2-camera setup with DVR and 1-month recording.',
+    img:'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=900&h=700&fit=crop&q=80' }
+];
+
+/* =====================================================
+   BEFORE / AFTER DATA — pairs of images for each project
+   ===================================================== */
+var COMPARE = [
+  { title:'Door Camera Installation',
+    before:'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&h=500&fit=crop&q=80',
+    after:'https://images.unsplash.com/photo-1558002038-1055907df827?w=500&h=500&fit=crop&q=80' },
+  { title:'Office Security Upgrade',
+    before:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500&h=500&fit=crop&q=80',
+    after:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=500&fit=crop&q=80' }
+];
+
+/* =====================================================
+   CATEGORIES — labels shown on filter chips
+   ===================================================== */
+var CATS = [
+  { id:'all',      label:'All Work' },
+  { id:'cctv',     label:'CCTV Installation' },
+  { id:'business', label:'Business Security' },
+  { id:'web',      label:'Website Development' },
+  { id:'shop',     label:'Shop & Retail' }
+];
+
+(function(){
+  var C=CONFIG, digits=C.phone.replace(/[^\d+]/g,'');
+
+  /* Contact links */
+  document.querySelectorAll('[data-phone-text]').forEach(function(e){e.textContent=C.phone;});
+  document.querySelectorAll('[data-phone-link]').forEach(function(e){e.href='tel:'+digits;});
+  document.querySelectorAll('[data-email]').forEach(function(e){e.textContent=C.email;e.href='mailto:'+C.email;});
+  document.querySelectorAll('[data-address]').forEach(function(e){e.textContent=C.address;});
+  document.querySelectorAll('[data-hours]').forEach(function(e){e.textContent=C.hours;});
+  document.querySelectorAll('[data-wa]').forEach(function(e){e.href='https://wa.me/'+C.whatsapp;});
+
+  /* Mobile menu */
+  var btn=document.getElementById('menuBtn'), links=document.getElementById('navLinks');
+  btn.addEventListener('click',function(){
+    var o=links.classList.toggle('open');
+    btn.setAttribute('aria-expanded',o?'true':'false');
+  });
+  links.addEventListener('click',function(e){ if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false');} });
+
+  /* ===== FILTER CHIPS ===== */
+  var filters=document.getElementById('filters');
+  filters.innerHTML=CATS.map(function(c,i){
+    return '<button class="chip'+(i===0?' active':'')+'" data-cat="'+c.id+'" role="tab" aria-selected="'+(i===0)+'">'+c.label+'</button>';
+  }).join('');
+
+  /* ===== BUILD GALLERY GRID ===== */
+  var grid=document.getElementById('galleryGrid');
+  var empty=document.getElementById('emptyState');
+
+  function catLabel(id){
+    var c=CATS.filter(function(x){return x.id===id;})[0];
+    return c ? c.label : id;
+  }
+
+  function renderGallery(filter){
+    var items = filter==='all' ? GALLERY : GALLERY.filter(function(g){return g.category===filter;});
+    empty.style.display = items.length ? 'none' : 'block';
+    grid.innerHTML = items.map(function(g,idx){
+      return '<div class="g-item" data-idx="'+GALLERY.indexOf(g)+'" tabindex="0" role="button" aria-label="Open '+g.title+'">'+
+        '<img src="'+g.img+'" alt="'+g.title+'" loading="lazy">'+
+        '<div class="overlay">'+
+          '<span class="cat">'+catLabel(g.category)+'</span>'+
+          '<h3>'+g.title+'</h3>'+
+          '<p>'+g.desc+'</p>'+
+        '</div>'+
+        '<div class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></div>'+
+      '</div>';
+    }).join('');
+  }
+
+  renderGallery('all');
+
+  /* Chip clicks */
+  filters.addEventListener('click',function(e){
+    var chip=e.target.closest('.chip'); if(!chip) return;
+    filters.querySelectorAll('.chip').forEach(function(c){
+      c.classList.remove('active'); c.setAttribute('aria-selected','false');
+    });
+    chip.classList.add('active'); chip.setAttribute('aria-selected','true');
+    renderGallery(chip.getAttribute('data-cat'));
+  });
+
+  /* ===== BUILD COMPARE ===== */
+  var cg=document.getElementById('compareGrid');
+  cg.innerHTML=COMPARE.map(function(c){
+    return '<article class="compare-card">'+
+      '<h3>'+c.title+'</h3>'+
+      '<div class="ba-pair">'+
+        '<div class="half"><img src="'+c.before+'" alt="Before: '+c.title+'" loading="lazy"><span>Before</span></div>'+
+        '<div class="half"><img src="'+c.after+'" alt="After: '+c.title+'" loading="lazy"><span>After</span></div>'+
+      '</div>'+
+    '</article>';
+  }).join('');
+
+  /* ===== LIGHTBOX ===== */
+  var lb=document.getElementById('lightbox');
+  var lbImg=document.getElementById('lbImg');
+  var lbCat=document.getElementById('lbCat');
+  var lbTitle=document.getElementById('lbTitle');
+  var lbDesc=document.getElementById('lbDesc');
+  var current=0, visible=[];
+
+  function openLightbox(index){
+    visible = GALLERY;
+    current = index;
+    showLightbox();
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+
+  function showLightbox(){
+    var g=visible[current];
+    if(!g) return;
+    lbImg.src=g.img;
+    lbImg.alt=g.title;
+    lbCat.textContent=catLabel(g.category);
+    lbTitle.textContent=g.title;
+    lbDesc.textContent=g.desc;
+  }
+
+  function closeLightbox(){
+    lb.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  function nextImage(d){
+    if(!visible.length) return;
+    current=(current+d+visible.length)%visible.length;
+    showLightbox();
+  }
+
+  grid.addEventListener('click',function(e){
+    var item=e.target.closest('.g-item'); if(!item) return;
+    openLightbox(parseInt(item.getAttribute('data-idx'),10));
+  });
+  grid.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){
+      var item=e.target.closest('.g-item'); if(!item) return;
+      e.preventDefault();
+      openLightbox(parseInt(item.getAttribute('data-idx'),10));
+    }
+  });
+
+  document.getElementById('lbClose').addEventListener('click',closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();nextImage(-1);});
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();nextImage(1);});
+  lb.addEventListener('click',function(e){ if(e.target===lb) closeLightbox(); });
+
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') closeLightbox();
+    if(e.key==='ArrowLeft') nextImage(-1);
+    if(e.key==='ArrowRight') nextImage(1);
+  });
+})();
+</script>
+</body>
+</html>
