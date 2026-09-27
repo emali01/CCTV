@@ -44,7 +44,6 @@ ul{margin:0;padding:0;list-style:none}
 .logo-text{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 .logo-tag{font-size:.58rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-top:1px;white-space:nowrap}
 .logo-mark{width:34px;height:34px;color:var(--g600);flex-shrink:0}
-/* local logo image — same 34×34 size */
 .logo-img{width:34px;height:34px;object-fit:contain;flex-shrink:0;display:block}
 .nav-links{display:flex;gap:32px;font-size:.9rem;font-weight:500;color:#2a3a32}
 .nav-links a:hover{color:var(--g600)}
@@ -95,21 +94,11 @@ p.sub{color:var(--muted);font-size:.93rem}
 /* why */
 .why-shell{background:var(--g50);padding:60px 0 64px}
 .why-outer{position:relative}
-
-/* Big camera decoration */
 .big-cam-deco{
-  position:absolute;
-  top:-70px;
-  left:40px;
-  width:200px;
-  height:160px;
-  z-index:4;
-  pointer-events:none;
-  filter:drop-shadow(0 14px 24px rgba(12,79,48,.35));
-  transform:rotate(-6deg);
+  position:absolute;top:-70px;left:40px;width:200px;height:160px;z-index:4;
+  pointer-events:none;filter:drop-shadow(0 14px 24px rgba(12,79,48,.35));transform:rotate(-6deg);
 }
 .big-cam-deco svg{width:100%;height:100%;display:block}
-
 .why{position:relative;background:var(--dark);color:#fff;border-radius:52px;padding:58px 44px 58px 56px;display:grid;grid-template-columns:.85fr 1fr .9fr;gap:22px;align-items:center;overflow:hidden}
 .why::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% -10%,rgba(53,181,102,.34),transparent 46%),radial-gradient(circle at 0 105%,rgba(53,181,102,.30),transparent 42%);pointer-events:none}
 .why>*{position:relative}
@@ -130,10 +119,6 @@ p.sub{color:var(--muted);font-size:.93rem}
 /* work */
 .work-foot{display:flex;justify-content:center;margin-top:38px}
 .work-foot .btn{min-width:220px}
-@media (max-width:620px){
-  .work-foot{margin-top:26px}
-  .work-foot .btn{width:100%}
-}
 .work{padding:70px 0 50px;background:#fff}
 .work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:26px}
 .arrows{display:flex;gap:10px}
@@ -170,53 +155,16 @@ p.sub{color:var(--muted);font-size:.93rem}
 .plan .btn{width:100%;margin-top:22px}
 
 /* PAYMENT NOTE */
-.pay-note{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  font-size:.86rem;
-  padding:7px 0;
-  color:var(--g600);
-  font-weight:700;
-  line-height:1.3;
-}
-.pay-note .blink{
-  flex:none;
-  width:11px;
-  height:11px;
-  border-radius:50%;
-  background:#22c55e;
-  margin-top:5px;
-  box-shadow:0 0 0 0 rgba(34,197,94,.85);
-  animation:blinkPulse 1.4s ease-out infinite;
-}
-@keyframes blinkPulse{
-  0%{transform:scale(.85);box-shadow:0 0 0 0 rgba(34,197,94,.75)}
-  60%{transform:scale(1.15);box-shadow:0 0 0 11px rgba(34,197,94,0)}
-  100%{transform:scale(.85);box-shadow:0 0 0 0 rgba(34,197,94,0)}
-}
+.pay-note{display:flex;gap:10px;align-items:flex-start;font-size:.86rem;padding:7px 0;color:var(--g600);font-weight:700;line-height:1.3}
+.pay-note .blink{flex:none;width:11px;height:11px;border-radius:50%;background:#22c55e;margin-top:5px;box-shadow:0 0 0 0 rgba(34,197,94,.85);animation:blinkPulse 1.4s ease-out infinite}
+@keyframes blinkPulse{0%{transform:scale(.85);box-shadow:0 0 0 0 rgba(34,197,94,.75)}60%{transform:scale(1.15);box-shadow:0 0 0 11px rgba(34,197,94,0)}100%{transform:scale(.85);box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 .pay-note .pn-text{display:flex;flex-direction:column}
-.pay-note .pn-text small{
-  font-size:.74rem;
-  font-weight:600;
-  color:var(--muted);
-  margin-top:2px;
-}
+.pay-note .pn-text small{font-size:.74rem;font-weight:600;color:var(--muted);margin-top:2px}
 .plan.featured .pay-note{color:var(--lime);}
 .plan.featured .pay-note .pn-text small{color:#a9dfc0;}
-.plan.featured .blink{
-  background:var(--lime);
-  box-shadow:0 0 0 0 rgba(95,209,138,.85);
-  animation:blinkPulseLime 1.4s ease-out infinite;
-}
-@keyframes blinkPulseLime{
-  0%{transform:scale(.85);box-shadow:0 0 0 0 rgba(95,209,138,.75)}
-  60%{transform:scale(1.15);box-shadow:0 0 0 11px rgba(95,209,138,0)}
-  100%{transform:scale(.85);box-shadow:0 0 0 0 rgba(95,209,138,0)}
-}
-@media (prefers-reduced-motion: reduce){
-  .blink{animation:none}
-}
+.plan.featured .blink{background:var(--lime);box-shadow:0 0 0 0 rgba(95,209,138,.85);animation:blinkPulseLime 1.4s ease-out infinite}
+@keyframes blinkPulseLime{0%{transform:scale(.85);box-shadow:0 0 0 0 rgba(95,209,138,.75)}60%{transform:scale(1.15);box-shadow:0 0 0 11px rgba(95,209,138,0)}100%{transform:scale(.85);box-shadow:0 0 0 0 rgba(95,209,138,0)}}
+@media (prefers-reduced-motion: reduce){.blink{animation:none}}
 
 .plan.featured{background:var(--dark);color:#fff;border-color:var(--dark);transform:translateY(-8px);box-shadow:0 24px 46px rgba(12,79,48,.3)}
 .plan.featured .desc{color:#cfe7d8}
@@ -317,13 +265,7 @@ p.sub{color:var(--muted);font-size:.93rem}
   .checks{padding:8px 18px}
   .checks li{font-size:.82rem;padding:11px 0;gap:10px}
 
-  .big-cam-deco{
-    width:130px;
-    height:104px;
-    top:-48px;
-    left:16px;
-    transform:rotate(-5deg);
-  }
+  .big-cam-deco{width:130px;height:104px;top:-48px;left:16px;transform:rotate(-5deg)}
 
   .work{padding:48px 0 40px}
   .work-head{flex-direction:row;align-items:flex-start;margin-bottom:18px}
@@ -390,14 +332,7 @@ p.sub{color:var(--muted);font-size:.93rem}
   .f-grid{grid-template-columns:1fr;gap:22px}
   .quick{margin:12px 16px 22px}
   .cta-copy{padding:28px 16px 6px}
-
-  .big-cam-deco{
-    width:100px;
-    height:80px;
-    top:-38px;
-    left:10px;
-    transform:rotate(-4deg);
-  }
+  .big-cam-deco{width:100px;height:80px;top:-38px;left:10px;transform:rotate(-4deg)}
   .pay-note{font-size:.78rem;padding:6px 0}
   .pay-note .blink{width:9px;height:9px;margin-top:4px}
 }
@@ -473,7 +408,7 @@ p.sub{color:var(--muted);font-size:.93rem}
         <svg class="ar" viewBox="0 0 60 50" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M46 4C52 18 40 34 14 40"/><path d="m22 32-9 8 11 5"/></svg>
       </div>
       <div class="hero-media ph">
-        <img class="photo" src="images/hero.png" alt="Technician installing a CCTV security camera on a wall" width="900" height="1000">
+        <img class="photo" src="images/hero.jpg" alt="Technician installing a CCTV security camera" width="900" height="1000">
       </div>
     </div>
   </section>
@@ -600,8 +535,6 @@ p.sub{color:var(--muted);font-size:.93rem}
     <h2 class="title">Clear Packages, No Hidden Costs</h2>
     <p class="sub">Starting prices for our most popular services. Every project gets a fixed quote after a free site visit.</p>
     <div class="plans" style="text-align:left">
-
-      <!-- HOME CCTV -->
       <article class="plan">
         <h3>Home CCTV</h3>
         <p class="desc">Protect your home and family.</p>
@@ -623,7 +556,6 @@ p.sub{color:var(--muted);font-size:.93rem}
         <a class="btn outline" href="#book">Choose Plan</a>
       </article>
 
-      <!-- BUSINESS SECURITY (featured) -->
       <article class="plan featured">
         <span class="pop">Most Popular</span>
         <h3>Business Security</h3>
@@ -645,7 +577,6 @@ p.sub{color:var(--muted);font-size:.93rem}
         <a class="btn lime" href="#book">Choose Plan</a>
       </article>
 
-      <!-- WEBSITE DEVELOPMENT -->
       <article class="plan">
         <h3>Website Development</h3>
         <p class="desc">A professional site for your business.</p>
@@ -665,7 +596,6 @@ p.sub{color:var(--muted);font-size:.93rem}
         </ul>
         <a class="btn outline" href="#book">Choose Plan</a>
       </article>
-
     </div>
   </div>
 </section>
@@ -788,13 +718,13 @@ p.sub{color:var(--muted);font-size:.93rem}
 
 <script>
 /* =====================================================
-   CONFIG — using LOCAL images from the /images folder.
-   Required files:
-     images/logo.png   (any size, displays at 34×34)
-     images/hero.jpg   (900×1000 recommended)
-     images/why.jpg    (700×700 recommended)
-     images/cta.jpg    (1000×600 recommended)
-     images/work1a.jpg … work5b.jpg  (400×480 each)
+   LOCAL IMAGES — place these files in /images folder:
+     logo.png, hero.jpg, why.jpg, cta.jpg
+     work1a.jpg work1b.jpg
+     work2a.jpg work2b.jpg
+     work3a.jpg work3b.jpg
+     work4a.jpg work4b.jpg
+     work5a.jpg work5b.jpg
    ===================================================== */
 var CONFIG = {
   phone:    '+255 678 942 423',
@@ -807,21 +737,20 @@ var CONFIG = {
     why:  'images/why.jpg',
     cta:  'images/cta.jpg',
     work: [
-      ['images/work1a.jpg','images/work1b.jpg'],
-      ['images/work2a.png','images/work3a.jpg'],
-      ['images/work3a.png','images/work3b.jpg'],
-      ['images/work3a.jpg','images/work2b.jpg'],
-      ['images/work1a.jpg','images/work1b.jpg']
+      ['images/work1a.jpg','images/work1b.jpg'],   /* Home CCTV */
+      ['images/work2a.jpg','images/work2b.jpg'],   /* Office Security */
+      ['images/work3a.jpg','images/work3b.jpg'],   /* Business Website */
+      ['images/work4a.jpg','images/work4b.jpg'],   /* Shop CCTV */
+      ['images/work5a.jpg','images/work5b.jpg']    /* E-commerce */
     ]
   },
   projects: ['Home CCTV Setup','Office Security System','Business Website','Shop CCTV & Monitoring','E-commerce Store'],
-  /* Custom left/right labels for each gallery card */
   labels: [
     ['Indoor','Outdoor'],       /* Home CCTV Setup */
     ['Indoor','Outdoor'],       /* Office Security System */
-    ['Portfolio','Fashion'],    /* Business Website — updated */
+    ['Portfolio','Company'],    /* Business Website */
     ['Indoor','Outdoor'],       /* Shop CCTV & Monitoring */
-    ['School','Office']         /* E-commerce Store — updated */
+    ['School','Office']         /* E-commerce Store */
   ]
 };
 </script>
@@ -836,7 +765,7 @@ var CONFIG = {
   document.querySelectorAll('[data-wa]').forEach(function(e){e.href='https://wa.me/'+C.whatsapp;});
   document.querySelectorAll('[data-price]').forEach(function(e){e.textContent=C.currency+e.getAttribute('data-price');});
 
-  /* Gallery — use local images + custom labels per card */
+  /* Gallery — build cards with correct labels per project */
   var esc=function(t){return t.replace(/&/g,'&amp;');};
   var scroller=document.getElementById('scroller');
   scroller.innerHTML=C.projects.map(function(name,i){
