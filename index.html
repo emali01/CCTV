@@ -44,6 +44,8 @@ ul{margin:0;padding:0;list-style:none}
 .logo-text{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 .logo-tag{font-size:.58rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-top:1px;white-space:nowrap}
 .logo-mark{width:34px;height:34px;color:var(--g600);flex-shrink:0}
+/* local logo image — same 34×34 size */
+.logo-img{width:34px;height:34px;object-fit:contain;flex-shrink:0;display:block}
 .nav-links{display:flex;gap:32px;font-size:.9rem;font-weight:500;color:#2a3a32}
 .nav-links a:hover{color:var(--g600)}
 .phone{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--g600);color:var(--btn);background:#fff;padding:9px 18px;border-radius:999px;font-weight:600;font-size:.88rem}
@@ -167,9 +169,7 @@ p.sub{color:var(--muted);font-size:.93rem}
 .plan li svg{flex:none;width:18px;height:18px;margin-top:2px;color:var(--g500)}
 .plan .btn{width:100%;margin-top:22px}
 
-/* ═══════════════════════════════════════════════════
-   PAYMENT NOTE — no border, no background, same spacing as list
-   ═══════════════════════════════════════════════════ */
+/* PAYMENT NOTE */
 .pay-note{
   display:flex;
   gap:10px;
@@ -202,7 +202,6 @@ p.sub{color:var(--muted);font-size:.93rem}
   color:var(--muted);
   margin-top:2px;
 }
-/* featured (dark) plan override */
 .plan.featured .pay-note{color:var(--lime);}
 .plan.featured .pay-note .pn-text small{color:#a9dfc0;}
 .plan.featured .blink{
@@ -423,7 +422,7 @@ p.sub{color:var(--muted);font-size:.93rem}
 <header class="site-header">
   <div class="wrap nav">
     <a href="#home" class="logo" aria-label="KiwangoTech home">
-      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 34 8v11c0 9-6 15-14 18C12 34 6 28 6 19V8z" fill="currentColor"/><circle cx="20" cy="20" r="7" fill="#fff"/><circle cx="20" cy="20" r="3.4" fill="#0c4f30"/><path d="M28 6c6 0 9 4 9 9-5-1-8-4-9-9z" fill="#5fd18a"/></svg>
+      <img class="logo-img" src="images/logo.png" alt="KiwangoTech logo" width="34" height="34">
       <span class="logo-text">
         Kiwango
         <span class="logo-tag">Technology &amp; CCTV</span>
@@ -474,7 +473,7 @@ p.sub{color:var(--muted);font-size:.93rem}
         <svg class="ar" viewBox="0 0 60 50" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M46 4C52 18 40 34 14 40"/><path d="m22 32-9 8 11 5"/></svg>
       </div>
       <div class="hero-media ph">
-        <img class="photo" data-img="hero" alt="Technician installing a CCTV security camera on a wall" width="900" height="1000">
+        <img class="photo" src="images/hero.png" alt="Technician installing a CCTV security camera on a wall" width="900" height="1000">
       </div>
     </div>
   </section>
@@ -533,7 +532,7 @@ p.sub{color:var(--muted);font-size:.93rem}
       </div>
       <div class="why-img">
         <div class="blob ph">
-          <img class="photo" data-img="why" alt="Technician mounting a CCTV camera" width="700" height="700">
+          <img class="photo" src="images/why.jpg" alt="Technician mounting a CCTV camera" width="700" height="700">
         </div>
         <div class="seal"><b>100%</b><span>Satisfaction<br>Guaranteed</span></div>
       </div>
@@ -613,7 +612,6 @@ p.sub{color:var(--muted);font-size:.93rem}
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>500 GB DVR &amp; all cabling</li>
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>Live view on your phone</li>
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>Professional installation</li>
-          <!-- ▼ Payment note — no border, no background, same spacing -->
           <li class="pay-note">
             <span class="blink" aria-hidden="true"></span>
             <span class="pn-text">
@@ -636,7 +634,6 @@ p.sub{color:var(--muted);font-size:.93rem}
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>2 TB NVR with remote access</li>
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>Motion alerts to your phone</li>
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>1-year warranty &amp; free check-up</li>
-          <!-- ▼ Payment note -->
           <li class="pay-note">
             <span class="blink" aria-hidden="true"></span>
             <span class="pn-text">
@@ -658,7 +655,6 @@ p.sub{color:var(--muted);font-size:.93rem}
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>Contact form &amp; WhatsApp button</li>
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>Basic SEO &amp; fast loading</li>
           <li><svg viewBox="0 0 24 24"><use href="#tick"/></svg>30 days free support</li>
-          <!-- ▼ Payment note -->
           <li class="pay-note">
             <span class="blink" aria-hidden="true"></span>
             <span class="pn-text">
@@ -705,7 +701,7 @@ p.sub{color:var(--muted);font-size:.93rem}
   <div class="wrap">
     <div class="cta">
       <div class="cta-scene ph" aria-hidden="true">
-        <img class="photo" data-img="cta" alt="" width="1000" height="600">
+        <img class="photo" src="images/cta.jpg" alt="" width="1000" height="600">
       </div>
       <div class="cta-copy">
         <span class="eyebrow"><svg viewBox="0 0 60 80"><use href="#camera-icon"/></svg>Book Your Service</span>
@@ -742,10 +738,10 @@ p.sub{color:var(--muted);font-size:.93rem}
     <div class="f-grid">
       <div>
         <a href="#home" class="logo">
-          <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 34 8v11c0 9-6 15-14 18C12 34 6 28 6 19V8z" fill="currentColor"/><circle cx="20" cy="20" r="7" fill="#0c4f30"/><circle cx="20" cy="20" r="3.4" fill="#5fd18a"/></svg>
+          <img class="logo-img" src="images/logo.png" alt="KiwangoTech logo" width="34" height="34">
           <span class="logo-text">
             Kiwango
-            <span class="logo-tag">Technology&amp; cctv</span>
+            <span class="logo-tag">Technology &amp; CCTV</span>
           </span>
         </a>
         <p>Reliable CCTV camera installation and website development for homes, offices and businesses across Tanzania.</p>
@@ -792,7 +788,13 @@ p.sub{color:var(--muted);font-size:.93rem}
 
 <script>
 /* =====================================================
-   CONFIG — real working image URLs (Unsplash CDN)
+   CONFIG — using LOCAL images from the /images folder.
+   Required files:
+     images/logo.png   (any size, displays at 34×34)
+     images/hero.jpg   (900×1000 recommended)
+     images/why.jpg    (700×700 recommended)
+     images/cta.jpg    (1000×600 recommended)
+     images/work1a.jpg … work5b.jpg  (400×480 each)
    ===================================================== */
 var CONFIG = {
   phone:    '+255 678 942 423',
@@ -801,23 +803,26 @@ var CONFIG = {
   hours:    'Mon–Sat, 8 AM – 6 PM',
   currency: 'Tsh ',
   images: {
-    hero: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=900&h=1200&fit=crop&q=80',
-    why:  'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=700&h=700&fit=crop&q=80',
-    cta:  'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&h=600&fit=crop&q=80',
+    hero: 'images/hero.jpg',
+    why:  'images/why.jpg',
+    cta:  'images/cta.jpg',
     work: [
-      ['https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&h=480&fit=crop&q=80',
-       'https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=480&fit=crop&q=80'],
-      ['https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=480&fit=crop&q=80',
-       'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=480&fit=crop&q=80'],
-      ['https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=480&fit=crop&q=80',
-       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=480&fit=crop&q=80'],
-      ['https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=480&fit=crop&q=80',
-       'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=480&fit=crop&q=80'],
-      ['https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=480&fit=crop&q=80',
-       'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&h=480&fit=crop&q=80']
+      ['images/work1a.jpg','images/work1b.jpg'],
+      ['images/work2a.png','images/work3a.jpg'],
+      ['images/work3a.png','images/work3b.jpg'],
+      ['images/work3a.jpg','images/work2b.jpg'],
+      ['images/work1a.jpg','images/work1b.jpg']
     ]
   },
-  projects: ['Home CCTV Setup','Office Security System','Business Website','Shop CCTV & Monitoring','E-commerce Store']
+  projects: ['Home CCTV Setup','Office Security System','Business Website','Shop CCTV & Monitoring','E-commerce Store'],
+  /* Custom left/right labels for each gallery card */
+  labels: [
+    ['Indoor','Outdoor'],       /* Home CCTV Setup */
+    ['Indoor','Outdoor'],       /* Office Security System */
+    ['Portfolio','Fashion'],    /* Business Website — updated */
+    ['Indoor','Outdoor'],       /* Shop CCTV & Monitoring */
+    ['School','Office']         /* E-commerce Store — updated */
+  ]
 };
 </script>
 <script>
@@ -831,32 +836,16 @@ var CONFIG = {
   document.querySelectorAll('[data-wa]').forEach(function(e){e.href='https://wa.me/'+C.whatsapp;});
   document.querySelectorAll('[data-price]').forEach(function(e){e.textContent=C.currency+e.getAttribute('data-price');});
 
-  /* Load real photos */
-  var loadPhoto=function(img,src){
-    if(!src){img.remove();return;}
-    img.onerror=function(){img.style.background='#e4f4ea';img.alt='';};
-    img.src=src;
-  };
-  document.querySelectorAll('img[data-img]').forEach(function(im){
-    loadPhoto(im, C.images[im.getAttribute('data-img')]);
-  });
-
-  /* Mobile menu */
-  var btn=document.getElementById('menuBtn'), links=document.getElementById('navLinks');
-  btn.addEventListener('click',function(){
-    var o=links.classList.toggle('open');
-    btn.setAttribute('aria-expanded',o?'true':'false');
-  });
-  links.addEventListener('click',function(e){ if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false');} });
-
-  /* Gallery */
+  /* Gallery — use local images + custom labels per card */
   var esc=function(t){return t.replace(/&/g,'&amp;');};
   var scroller=document.getElementById('scroller');
   scroller.innerHTML=C.projects.map(function(name,i){
     var before=C.images.work[i][0], after=C.images.work[i][1];
-    return '<article class="work-card"><div class="ba" role="img" aria-label="Before and after: '+esc(name)+'">'+
-      '<div class="half ph"><img class="photo" src="'+before+'" alt="Before: '+esc(name)+'" loading="lazy"><span>Before</span></div>'+
-      '<div class="half ph"><img class="photo" src="'+after+'" alt="After: '+esc(name)+'" loading="lazy"><span>After</span></div></div>'+
+    var leftLabel  = C.labels[i][0];
+    var rightLabel = C.labels[i][1];
+    return '<article class="work-card"><div class="ba" role="img" aria-label="'+esc(leftLabel)+' and '+esc(rightLabel)+': '+esc(name)+'">'+
+      '<div class="half ph"><img class="photo" src="'+before+'" alt="'+esc(leftLabel)+': '+esc(name)+'" loading="lazy" onerror="this.style.display=\'none\'"><span>'+esc(leftLabel)+'</span></div>'+
+      '<div class="half ph"><img class="photo" src="'+after+'" alt="'+esc(rightLabel)+': '+esc(name)+'" loading="lazy" onerror="this.style.display=\'none\'"><span>'+esc(rightLabel)+'</span></div></div>'+
       '<h3>'+esc(name)+'</h3></article>';
   }).join('');
 
@@ -866,6 +855,14 @@ var CONFIG = {
   };
   document.getElementById('prev').addEventListener('click',function(){step(-1);});
   document.getElementById('next').addEventListener('click',function(){step(1);});
+
+  /* Mobile menu */
+  var btn=document.getElementById('menuBtn'), links=document.getElementById('navLinks');
+  btn.addEventListener('click',function(){
+    var o=links.classList.toggle('open');
+    btn.setAttribute('aria-expanded',o?'true':'false');
+  });
+  links.addEventListener('click',function(e){ if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false');} });
 
   /* Booking */
   var msg=document.getElementById('bookMsg'), sel=document.getElementById('service');
